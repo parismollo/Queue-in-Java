@@ -30,11 +30,18 @@ class File {
 
     public static void main(String[] args) {
         File f = new File(4);
+        f.display();
         f.put(1);
         f.display();
         f.put(4);
         f.display();
         f.put(2);
+        f.display();
+
+        f.put(4);
+        f.display();
+
+        f.get();
         f.display();
     }
 
@@ -48,6 +55,25 @@ class File {
        } else {
            displayFailedMessage("Put operation failed... :(");
        }
+    }
+
+    public int get() {
+        if(this.empty()) {
+            displayFailedMessage("Get operation failed... :(");
+            return -1;
+        }
+        else {
+            int res = this.file[this.head];
+            for(int i = 0; i < this.queue-1; i++) {
+                this.file[i] = this.file[i+1];
+            }
+
+            if (!this.isFull()) {
+                this.file[this.queue] = 0;
+            }
+            this.queue --;
+            return res;
+        }
     }
 
     public boolean empty() {
@@ -70,7 +96,7 @@ class File {
     }
 
     private void displayWarningMessage(String string) {
-        System.out.println(yellowColor+string+resetColor);
+        System.out.println(yellowColor+"[LOG]: "+string+resetColor);
     }
 
     private void displayFailedMessage(String string) {
