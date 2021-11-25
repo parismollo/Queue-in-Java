@@ -9,6 +9,17 @@ seront toutes deux initialisées à 0 ce qui signifie que la file d'attente est 
 l'index jusqu'auquel les éléments sont stockés dans le tableau et front est l'index 
 du premier élément du tableau.
 
+
+REPONSES:
+
+1. La compléxité de la méthode get est proportiennel à la taille du tableau, c'est une opération de compléxité linéaire O(n).
+Pendant que la commpléxité de la méthode de put c'est toujours constant car peu importe la taille du tableau, on l'ajoutera à la 'fin', si il 
+reste encore du espace.
+
+2. Une solution plus efficace, c'est soit d'utiliser des listes chainés, soit d'utiliser un tableau array circulaire. Car la question demande
+d'utiliser des tableaux, je vais implémenter la solution dans un tableau circulaire.
+
+
 */
 
 class File {
@@ -95,11 +106,11 @@ class File {
         System.out.println();
     }
 
-    private void displayWarningMessage(String string) {
+    public static void displayWarningMessage(String string) {
         System.out.println(yellowColor+"[LOG]: "+string+resetColor);
     }
 
-    private void displayFailedMessage(String string) {
+    public static void displayFailedMessage(String string) {
         System.out.println(redColor+"[LOG]: "+string+resetColor);
     }
 
