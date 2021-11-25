@@ -17,7 +17,8 @@ Pendant que la commpléxité de la méthode de put c'est toujours constant car p
 reste encore du espace.
 
 2. Une solution plus efficace, c'est soit d'utiliser des listes chainés, soit d'utiliser un tableau array circulaire. Car la question demande
-d'utiliser des tableaux, je vais implémenter la solution dans un tableau circulaire.
+d'utiliser des tableaux, je vais implémenter la solution dans un tableau circulaire. Voir fichier CircularFile. Dans les méthodes de cette classe
+de tableau circulaire, les opérations sont toutes à temps constante car on ne fait pas de boucles.
 
 
 */

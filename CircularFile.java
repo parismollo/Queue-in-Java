@@ -10,7 +10,7 @@ public class CircularFile {
     private static String greenColor = "\u001B[32m";
     private static String redColor = "\u001B[31m";
     private static String resetColor = "\u001B[0m";
-    private static String yellowColor = "\u001B[33m";
+    // private static String yellowColor = "\u001B[33m";
 
 
     public CircularFile(int taille) {
@@ -33,6 +33,11 @@ public class CircularFile {
 
         f.put(4);
         f.display();
+
+        f.get();
+        f.display();
+        f.get();
+        f.display();
     }
 
     public void put(int x) { // On va toujours ajouter dans la pos de la queue
@@ -52,6 +57,25 @@ public class CircularFile {
                 this.fileCirculaire[queue] = x;
                 
             }
+        }
+    }
+
+    public int get() { // On supprimme depuis le head toujours
+        if (this.empty()) {
+            File.displayFailedMessage("Get operation failed... :(");
+            return -1;
+        } else {
+            int res = this.fileCirculaire[this.head];
+            if (this.head == this.queue) {
+                this.head = -1;
+                this.queue = -1;
+            } else if (this.head == this.taille -1) {
+                // todo
+                this.head = 0;
+            } else {
+                this.head++;
+            }
+            return res;
         }
     }
 
